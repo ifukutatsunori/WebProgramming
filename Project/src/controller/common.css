@@ -1,0 +1,59 @@
+.title-area {
+	margin-top: 30px;
+	margin-bottom: 80px;
+	 text-align: center;
+}
+
+.title-area2 {
+margin-top: 30px;
+	margin-bottom: 30px;
+}
+.login-form-area {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.button-area {
+  margin-top: 30px;
+}
+
+.button-area2 {
+ text-align: right;
+}
+
+.button-area3 {
+ text-align: center;
+}
+
+.btn3 {
+margin-top: 30px;
+}
+
+.alert{
+height:60px;
+}
+
+.headder{
+ text-align: right;
+
+}
+
+.userList-area{
+width:1000px;
+}
+
+.table{
+margin-top: 30px;
+margin-left:auto;margin-right:auto;
+width:1000px;
+text-align: center;
+}
+
+.btn-return{
+margin-top: 50px;
+}
+
+.select-button-area{
+margin-top: 60px;
+}
+

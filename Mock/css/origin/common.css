@@ -1,0 +1,45 @@
+.title-area {
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
+
+.title-area2 {
+margin-top: 30px;
+	margin-bottom: 30px;
+}
+.login-form-area {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.button-area {
+  margin-top: 30px;
+}
+
+.button-area2 {
+ text-align: right;
+}
+
+.alert{
+height:60px;
+}
+
+.headder{
+ text-align: right;
+ width:1600px;
+}
+
+.table{
+margin-top: 30px;
+width: 800px;
+ text-align: center;
+}
+
+.btn-return{
+margin-top: 50px;
+}
+
+.select-button-area{
+margin-top: 60px;
+}
+
