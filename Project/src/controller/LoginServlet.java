@@ -20,28 +20,28 @@ import model.User;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginServlet() {
+		super();
 
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-    dispatcher.forward(request,response);
-    }
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-    	String loginId=request.getParameter("loginId");
-    	String password=request.getParameter("password");
+		String loginId = request.getParameter("loginId");
+		String password = request.getParameter("password");
 
-    	UserDao userDao = new UserDao();
+		UserDao userDao = new UserDao();
 		User user = userDao.findByLoginInfo(loginId, password);
 
 		if (user == null) {
@@ -57,6 +57,5 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("userInfo", user);
 
 		response.sendRedirect("UserListServlet");
-
-    }
+	}
 }

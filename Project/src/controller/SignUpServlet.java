@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,34 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDao;
-import model.User;
 
 /**
- * Servlet implementation class UserListServlet
+ * Servlet implementation class SingUpServlet
  */
-@WebServlet("/UserListServlet")
-public class UserListServlet extends HttpServlet {
+@WebServlet("/SignUpServlet")
+public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UserListServlet() {
+	public SignUpServlet() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserDao userDao = new UserDao();
-		List<User> userList = userDao.findAll();
-
-		request.setAttribute("userList", userList);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -47,5 +42,16 @@ public class UserListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
+		String loginId = request.getParameter("loginId");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String birthDate = request.getParameter("birthDate");
+
+		UserDao userDao = new UserDao();
+		userDao.signUp(loginId, password, name, birthDate);
+
+		response.sendRedirect("UserListServlet");
 	}
 }

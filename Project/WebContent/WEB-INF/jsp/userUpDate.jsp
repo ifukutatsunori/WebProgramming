@@ -8,16 +8,15 @@
 
 </head>
 <div class="alert alert-dark"role="alert">
-	<div class="headder">　管理者名　<a href="login.html"><button type="button" class="btn btn-outline-danger btn-sm"><a href="login.html">ログアウト</button></a></div>
+	<div class="headder">　管理者名　<a href="login.html"><button type="button" class="btn btn-outline-danger btn-sm">ログアウト</button></a></div>
 	</div>
 <body>
 
 <div class="container">
-      
-      <center>
+
+
       <h1 class="title-area">ユーザー情報更新</h1>
-      </center>
-      
+
 	  <div class="login-form-area">
 	      <div class="row form-group">
 	         <div  class="col-sm-4">
@@ -60,16 +59,15 @@
 	          <input type="date" class="form-control" id="inputDate" placeholder="1989/04/26">
 	        </div>
 	      </div>
-	  	    
-	    <center>
+
 	          <button type="button" class="btn btn-primary btn-md button-area">　　更新　　</button>
-	         
+
 	    </div>
 	    <a href="user-list.html">
 	     <button type="button" class="btn-return btn-link">　戻る　</button>
 	     </a>
     </div>
-    
+
 
 </div>
 
