@@ -28,7 +28,6 @@
       <h1 class="title-area">ユーザー新規登録</h1>
 
  <form action="SignUpServlet" method="post">
-
 	  <div class="login-form-area">
 	      <div class="row form-group">
 	         <div  class="col-sm-4">
@@ -43,7 +42,7 @@
 	           <label for="inputPassword" class="scol-form-label">パスワード</label>
 	         </div>
 	        <div  class="col-sm-8">
-	          <input type="password" class="form-control" name="password" id="password" placeholder="パスワード">
+	          <input type="password" class="form-control" name="password" id="password"placeholder="パスワード">
 	        </div>
 	     </div>
 	        <div class="login-form-area">
@@ -81,22 +80,6 @@
 
     	</div>
     	</form>
-	<script>
-	  var form = document.forms[0];
-	  form.onsubmit = function() {
-	    // エラーメッセージをクリアする
-	    form.password.setCustomValidity("");
-	    // パスワードの一致確認
-	    if (form.password.value != form.passwordConfirm.value) {
-	      // 一致していなかったら、エラーメッセージを表示する
-	      form.password.setCustomValidity("パスワードと確認用パスワードが一致しません");
-	    }
-	  };
-	  // 入力値チェックエラーが発生したときの処理
-	  form.addEventListener("invalid", function() {
-	    document.getElementById("errorMessage").innerHTML = "入力値にエラーがあります";
-	  }, false);
-	</script>
 </div>
 
 </body>

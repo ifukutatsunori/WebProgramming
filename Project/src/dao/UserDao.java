@@ -172,33 +172,60 @@ public class UserDao {
 		return userList;
 	}
 
-public void upDate(String loginId, String password, String name, String birthDate) {
-	Connection conn = null;
+	public void upDate(String password, String name, String birthDate, String id) {
+		Connection conn = null;
 
-	try {
+		try {
 
-		conn = DBManager.getConnection();
+			conn = DBManager.getConnection();
 
-		String sql = "INSERT INTO user (password,name,birth_date,update_date) VALUES(?,?,?,now())";
+			String sql = "UPDATE user SET password = ?, name = ?,birth_date = ?, update_date = now() WHERE id= ? ";
 
-		PreparedStatement pStmt = conn.prepareStatement(sql);
-		pStmt.setString(1, password);
-		pStmt.setString(2, name);
-		pStmt.setString(3, birthDate);
-		pStmt.executeUpdate();
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, password);
+			pStmt.setString(2, name);
+			pStmt.setString(3, birthDate);
+			pStmt.setString(4, id);
+			pStmt.executeUpdate();
 
-		pStmt.close();
+			pStmt.close();
 
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
-}
+
+	public void delete(String deleteId) {
+		Connection conn = null;
+
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "DELETE FROM user WHERE id= ? ";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, deleteId);
+			pStmt.executeUpdate();
+			pStmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }

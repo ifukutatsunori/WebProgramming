@@ -98,8 +98,8 @@
 						<td>${user.birthDate}</td>
 						<td><a class="btn btn-primary"
 							href="UserDetailServlet?id=${user.id}">詳細</a> <a
-							class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
-							<a class="btn btn-danger" href="UserDeleteServlet?id=${user.id}">削除</a>
+							class="btn btn-success" href="UpDateServlet?id=${user.id}">更新</a>
+							<a class="btn btn-danger" href="DeleteServlet?id=${user.id}">削除</a>
 						</td>
 					</tr>
 				</c:forEach>
