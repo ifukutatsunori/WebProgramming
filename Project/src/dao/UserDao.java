@@ -12,7 +12,6 @@ import java.util.List;
 import model.User;
 
 public class UserDao {
-
 	public User findByLoginInfo(String loginId, String password) {
 		Connection conn = null;
 		try {
@@ -104,7 +103,7 @@ public class UserDao {
 
 			conn = DBManager.getConnection();
 
-			String sql = "INSERT INTO user (login_id,password,name,birth_date,create_date,update_date) VALUES(?,?,?,?,now(),now())";
+			String sql = "INSERT INTO user (login_id,password,name,birth_date,create_date,update_date) VALUES(?,MD5(?),?,?,now(),now())";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, loginId);
@@ -224,6 +223,39 @@ public class UserDao {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public String findByLoginIdCheck(String loginId) {
+		Connection conn = null;
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM user WHERE login_id = ?";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, loginId);
+			ResultSet rs = pStmt.executeQuery();
+
+			if (rs.next()) {
+				return null;
+			}else {
+				return loginId;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
 				}
 			}
 		}

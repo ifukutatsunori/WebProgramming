@@ -17,6 +17,10 @@ public class User {
 		this.name = name;
 	}
 
+	public User(String loginId) {
+		this.loginId = loginId;
+	}
+
 	public User(int id, String loginId, String name, Date birthDate, String password, String createDate,
 			String updateDate) {
 		this.id = id;

@@ -46,10 +46,42 @@ public class SignUpServlet extends HttpServlet {
 
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
+		String passwordConfirm = request.getParameter("passwordConfirm");
 		String name = request.getParameter("name");
 		String birthDate = request.getParameter("birthDate");
 
 		UserDao userDao = new UserDao();
+		String idCheck = userDao.findByLoginIdCheck(loginId);
+
+		if (idCheck == null) {
+			request.setAttribute("errMsg", "入力されたログインIDは既に使用されております");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
+			dispatcher.forward(request, response);
+			return;
+
+		} else if (!password.equals(passwordConfirm)) {
+			try {
+				request.setAttribute("errMsg", "パスワードと確認が一致しておりません");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
+				dispatcher.forward(request, response);
+				return;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if ((loginId.isEmpty()) || (name.isEmpty()) || (birthDate.isEmpty())) {
+			try {
+				request.setAttribute("errMsg", "入力内容が正しくありません");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
+				dispatcher.forward(request, response);
+				return;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		userDao.signUp(loginId, password, name, birthDate);
 
 		response.sendRedirect("UserListServlet");

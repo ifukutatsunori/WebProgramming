@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,14 @@
 
       <h1 class="title-area">ユーザー新規登録</h1>
 
+
+
  <form action="SignUpServlet" method="post">
+ <c:if test="${errMsg != null}" >
+	    <div class="alert alert-danger" role="alert">
+		  ${errMsg}
+		</div>
+	</c:if>
 	  <div class="login-form-area">
 	      <div class="row form-group">
 	         <div  class="col-sm-4">
@@ -38,6 +45,7 @@
 	        </div>
 	     </div>
 	  <div class="row form-group">
+
 	         <div  class="col-sm-4">
 	           <label for="inputPassword" class="scol-form-label">パスワード</label>
 	         </div>
