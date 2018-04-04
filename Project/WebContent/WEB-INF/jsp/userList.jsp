@@ -30,53 +30,49 @@
 
 		<h1 class="title-area">ユーザー一覧</h1>
 		<div class="userList-area">
-
 			<div class="button-area2">
 				<a href="SignUpServlet"><button type="submit"
 						class="btn btn-outline-primary btn-md">新規登録</button></a>
 			</div>
-
-			<div class="login-form-area">
-
-				<div class="row form-group">
-					<div class="col-sm-4">
-						<label for="inputText" class="col-form-label">ログインID</label>
+			<form action="UserListServlet" method="post">
+				<div class="login-form-area">
+					<div class="row form-group">
+						<div class="col-sm-4">
+							<label for="inputText" class="col-form-label">ログインID</label>
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="loginId1"
+								id="inputText" placeholder="ログインID">
+						</div>
 					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" id="inputText"
-							placeholder="ログインID">
+					<div class="row form-group">
+						<div class="col-sm-4">
+							<label for="inputText" class="scol-form-label">ユーザー名</label>
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="name1"
+								id="inputText" placeholder="ユーザー名">
+						</div>
 					</div>
-				</div>
-
-				<div class="row form-group">
-					<div class="col-sm-4">
-						<label for="inputText" class="scol-form-label">ユーザー名</label>
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" id="inputText"
-							placeholder="ユーザー名">
-					</div>
-				</div>
-
-				<div class="row form-group">
-					<div class="col-sm-4">
-						<label for="inputDate" class="scol-form-label">生年月日</label>
-					</div>
-					<div class="col-sm-3">
-						<input type="date" class="form-control" id="inputDate"
-							placeholder="年/月/日">
-					</div>
-					<div>～</div>
-					<div class="col-sm-3">
-						<input type="date" class="form-control" id="inputDate"
-							placeholder="年/月/日">
+					<div class="row form-group">
+						<div class="col-sm-4">
+							<label for="inputDate" class="scol-form-label">生年月日</label>
+						</div>
+						<div class="col-sm-3">
+							<input type="date" class="form-control" name="birthDate1"
+								id="inputDate" placeholder="年/月/日">
+						</div>
+						<div>～</div>
+						<div class="col-sm-3">
+							<input type="date" class="form-control" name="birthDate2"
+								id="inputDate" placeholder="年/月/日">
+						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="button-area2">
-				<button type="button" class="btn btn-primary btn-md">検索</button>
-			</div>
+				<div class="button-area2">
+					<button type="submit" class="btn btn-primary btn-md">検索</button>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -95,7 +91,7 @@
 					<tr>
 						<td>${user.loginId}</td>
 						<td>${user.name}</td>
-						<td>${user.birthDate}</td>
+						<td>${user.birthDateFmt}</td>
 						<td><a class="btn btn-primary"
 							href="UserDetailServlet?id=${user.id}">詳細</a> <a
 							class="btn btn-success" href="UpDateServlet?id=${user.id}">更新</a>

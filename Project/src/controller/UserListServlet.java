@@ -47,5 +47,15 @@ public class UserListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String loginId1 = request.getParameter("loginId1");
+		String name1 = request.getParameter("name1");
+		String birthDate1 = request.getParameter("birthDate1");
+		String birthDate2 = request.getParameter("birthDate2");
+
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findSearch(loginId1, name1, birthDate1, birthDate2);
+		request.setAttribute("userList", userList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
+		dispatcher.forward(request, response);
 	}
 }

@@ -32,7 +32,13 @@
 		<h1 class="title-area">ユーザー情報更新</h1>
 
 		<form action="UpDateServlet" method="post">
+
 			<c:forEach var="user" items="${userList}">
+				<c:if test="${errMsg != null}">
+					<div class="alert alert-danger" role="alert">${errMsg}</div>
+				</c:if>
+
+
 				<div class="login-form-area">
 					<div class="row form-group">
 						<div class="col-sm-4">

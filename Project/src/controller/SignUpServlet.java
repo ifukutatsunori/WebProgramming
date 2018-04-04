@@ -81,9 +81,7 @@ public class SignUpServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 		userDao.signUp(loginId, password, name, birthDate);
-
 		response.sendRedirect("UserListServlet");
 	}
 }

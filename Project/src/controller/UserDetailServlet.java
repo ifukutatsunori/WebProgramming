@@ -35,14 +35,10 @@ public class UserDetailServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String id = request.getParameter("id");
-
 		System.out.println(id);
-
 		UserDao userDao = new UserDao();
 		List<User> userList = userDao.findByUserInfo(id);
-
 		request.setAttribute("userList", userList);
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userInfo.jsp");
 		dispatcher.forward(request, response);
 	}

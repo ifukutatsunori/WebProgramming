@@ -56,12 +56,26 @@ public class UpDateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String password = request.getParameter("password");
+		String passwordConfirm = request.getParameter("passwordConfirm");
 		String name = request.getParameter("name");
 		String birthDate = request.getParameter("birthDate");
 		String id = request.getParameter("id");
 		UserDao userDao = new UserDao();
-		userDao.upDate(password, name, birthDate, id);
 
+		if (!password.equals(passwordConfirm)) {
+			try {
+				request.setAttribute("errMsg", "パスワードと確認が一致しておりません");
+
+				List<User> userList = userDao.findByUserInfo(id);
+				request.setAttribute("userList", userList);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userUpDate.jsp");
+				dispatcher.forward(request, response);
+				return;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		userDao.upDate(password, name, birthDate, id);
 		response.sendRedirect("UserListServlet");
 	}
 }

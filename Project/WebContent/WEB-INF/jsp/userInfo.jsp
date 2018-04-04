@@ -52,19 +52,19 @@
 						<div class="col-sm-4">
 							<label for="inputPassword" class="col-form-label">生年月日</label>
 						</div>
-						<div class="col-sm-8">${user.birthDate}</div>
+						<div class="col-sm-8">${user.birthDateFmt}</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-sm-4">
 							<label for="inputPassword" class="col-form-label">登録日時</label>
 						</div>
-						<div class="col-sm-8">${user.createDate}</div>
+						<div class="col-sm-8">${user.createDateFmt}</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-sm-4">
 							<label for="inputPassword" class="col-form-label">更新日時</label>
 						</div>
-						<div class="col-sm-8">${user.updateDate}</div>
+						<div class="col-sm-8">${user.updateDateFmt}</div>
 					</div>
 				</div>
 				<a href="UserListServlet">
