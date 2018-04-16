@@ -1,0 +1,19 @@
+.alert{
+background-color: #444444;
+color: #fff;\
+text-align: center;
+margin: 0 auto;
+}
+
+.title-area{
+text-align: center;
+margin: 0 auto;
+}
+.button-area{
+text-align: right;
+padding-right: 100px;
+}
+.btn{
+background-color: Transparent;
+color: #fff;
+}

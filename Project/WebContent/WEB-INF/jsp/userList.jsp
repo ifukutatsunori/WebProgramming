@@ -87,11 +87,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="user" items="${userList}">
+				<c:forEach var="buy" items="${userList}">
 					<tr>
-						<td>${user.loginId}</td>
-						<td>${user.name}</td>
-						<td>${user.birthDateFmt}</td>
+						<td>${buy.loginId}</td>
+						<td>${buy.name}</td>
+						<td>${buy.birthDateFmt}</td>
 						<td><a class="btn btn-primary"
 							href="UserDetailServlet?id=${user.id}">詳細</a> <a
 							class="btn btn-success" href="UpDateServlet?id=${user.id}">更新</a>
